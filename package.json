@@ -16,7 +16,8 @@
     "precommit": "eslint . && jest",
     "generate-source-maps-ios": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios-release.bundle --sourcemap-output ios-release.bundle.map",
     "generate-source-maps-android": "bugsnag-sourcemaps",
-    "postinstall": "patch-package && jetify"
+    "postinstall": "patch-package && jetify",
+    "adb": "adb connect 127.0.0.1:62001 && adb reverse tcp:9090 tcp:9090 && adb reverse tcp:3000 tcp:3000 && adb reverse tcp:9001 tcp:9001 && adb reverse tcp:8081 tcp:8081"
   },
   "husky": {
     "hooks": {
