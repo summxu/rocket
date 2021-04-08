@@ -80,8 +80,8 @@ export const setLanguage = (l) => {
 	}
 	// server uses lowercase pattern (pt-br), but we're forced to use standard pattern (pt-BR)
 	const locale = LANGUAGES.find(ll => ll.value.toLowerCase() === l.toLowerCase())?.value;
-	// don't go forward if it's the same language and default language (en) was setup already
-	if (i18n.locale === locale && i18n.translations?.en) {
+	// don't go forward if it's the same language and default language (zh-CN) was setup already
+	if (i18n.locale === locale && i18n.translations['zh-CN']) {
 		return;
 	}
 	i18n.locale = locale;
@@ -92,7 +92,7 @@ export const setLanguage = (l) => {
 	moment.locale(toMomentLocale(locale));
 };
 
-const defaultLanguage = { languageTag: 'en', isRTL: false };
+const defaultLanguage = { languageTag: 'zh-CN', isRTL: false };
 const availableLanguages = Object.keys(translations);
 const { languageTag } = RNLocalize.findBestAvailableLanguage(availableLanguages) || defaultLanguage;
 
