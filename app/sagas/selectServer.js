@@ -157,7 +157,8 @@ const handleServerRequest = function* handleServerRequest({ server, username, fr
 		if (serverInfo) {
 			yield RocketChat.getLoginServices(server);
 			yield RocketChat.getLoginSettings({ server });
-			Navigation.navigate('WorkspaceView');
+      // 取消自动跳转本来的登录页面，转为OnboardingView
+			// Navigation.navigate('WorkspaceView');
 
 			if (fromServerHistory) {
 				Navigation.navigate('LoginView', { username });
